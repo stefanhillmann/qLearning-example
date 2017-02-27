@@ -7,6 +7,19 @@ import nndial.corpora_names as cn
 from nndial import persistence
 from nndial.util import dict as du
 
+
+def get_rows(file_path):
+    data_file = open(file_path, 'r')
+    data_reader = csv.DictReader(data_file, delimiter=';')
+
+    read_rows = []
+    for row in data_reader:
+        read_rows.append(row)
+
+    data_file.close()
+
+    return read_rows
+
 # read configuration
 config = configparser.ConfigParser()
 config.read('local_config.ini')
@@ -24,19 +37,6 @@ corpora_files = {
 
 SUCCESS = ["S", "SCs", "SN", "SCu", "SCuCs"]
 NO_SUCCESS = ["FS", "FU"]
-
-
-def get_rows(file_path):
-    data_file = open(file_path, 'r')
-    data_reader = csv.DictReader(data_file, delimiter=';')
-
-    read_rows = []
-    for row in data_reader:
-        read_rows.append(row)
-
-    data_file.close()
-
-    return read_rows
 
 
 # create unique index for corpus, iteration and exchange_no in order to prevent
