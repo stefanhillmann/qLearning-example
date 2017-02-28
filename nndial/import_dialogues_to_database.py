@@ -8,6 +8,7 @@ from nndial import persistence
 from nndial.util import dict as du
 
 
+
 def get_rows(file_path):
     data_file = open(file_path, 'r')
     data_reader = csv.DictReader(data_file, delimiter=';')
@@ -37,7 +38,6 @@ corpora_files = {
 
 SUCCESS = ["S", "SCs", "SN", "SCu", "SCuCs"]
 NO_SUCCESS = ["FS", "FU"]
-
 
 # create unique index for corpus, iteration and exchange_no in order to prevent
 # multiple insertions of the same dialogue
